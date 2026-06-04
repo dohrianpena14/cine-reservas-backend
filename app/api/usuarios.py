@@ -28,3 +28,29 @@ def registrar_usuario(nombre, email, password):
     conn.close()
 
     return {"mensaje": "Usuario registrado correctamente"}
+
+
+def login_usuario(email, password):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT id, nombre, email
+        FROM usuarios
+        WHERE email = %s AND password = %s
+    """, (email, password))
+
+    usuario = cursor.fetchone()
+
+    cursor.close()
+    conn.close()
+
+    if not usuario:
+        return {"mensaje": "Credenciales incorrectas"}
+
+    return {
+        "id": usuario[0],
+        "nombre": usuario[1],
+        "email": usuario[2],
+        "mensaje": "Login exitoso"
+    }
