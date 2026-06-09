@@ -61,9 +61,15 @@ def carousel():
         position="relative",
         width="100%",
         height="500px",
-        bg="#000",
+
+        # mismo color del home/navbar para los laterales
+        bg="linear-gradient(90deg, #08152f 0%, #0b1d42 50%, #08152f 100%)",
+
         overflow="hidden",
         margin_top="30px",
         margin_bottom="20px",
-        border_radius="12px",
+
+        # mismo estilo que se ve en tu captura
+        border_radius="16px",
+        box_shadow="0 8px 25px rgba(0,0,0,0.35)",
     )
