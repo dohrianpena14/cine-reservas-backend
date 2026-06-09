@@ -26,6 +26,7 @@ def movie_card(titulo, genero, clasificacion, ruta):
                 size="4",
                 text_align="center",
                 min_height="65px",
+                color="white",
             ),
 
             rx.badge(
@@ -38,15 +39,20 @@ def movie_card(titulo, genero, clasificacion, ruta):
                 color_scheme="red",
             ),
 
-            rx.button(
-                "Ver detalles",
-                width="100%",
+            rx.link(
+                rx.button(
+                    "Ver detalles",
+                    width="100%",
+                    color_scheme="blue",
+                ),
+                href="/pelicula",
             ),
 
             spacing="3",
             align="center",
         ),
         width="270px",
+        bg="#1e293b",
     )
 
 
@@ -130,8 +136,8 @@ def peliculas_section():
 def proximamente_section():
     return rx.vstack(
         rx.heading(
-            "PRÓXIMAMENTE",
-            size="8",
+            "──────────────── PRÓXIMAMENTE ────────────────",
+            size="6",
             color="white",
         ),
 
@@ -142,16 +148,57 @@ def proximamente_section():
 
         spacing="3",
         padding="2em",
+        align="center",
     )
 
 
 def footer():
-    return rx.center(
+    return rx.vstack(
+
+        rx.hstack(
+
+            rx.link(
+                rx.image(
+                    src="/Imagenes/youtube.png",
+                    width="40px",
+                    height="40px",
+                ),
+                href="https://www.youtube.com/channel/UC0Y4DREcrJ49xmTXM5Jpwag",
+                is_external=True,
+            ),
+
+            rx.link(
+                rx.image(
+                    src="/Imagenes/tiktok.png",
+                    width="40px",
+                    height="40px",
+                ),
+                href="https://www.tiktok.com/@movietimerd1",
+                is_external=True,
+            ),
+
+            rx.link(
+                rx.image(
+                    src="/Imagenes/instagram.png",
+                    width="40px",
+                    height="40px",
+                ),
+                href="https://www.instagram.com/movietimerd1/",
+                is_external=True,
+            ),
+
+            spacing="5",
+            justify="center",
+        ),
+
         rx.text(
             "© 2026 MovieTime RD - Todos los derechos reservados"
         ),
+
+        spacing="4",
+        align="center",
         width="100%",
-        padding="1.5em",
+        padding="2em",
         bg="#08132b",
         color="white",
     )
