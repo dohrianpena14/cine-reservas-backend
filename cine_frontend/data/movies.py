@@ -10,14 +10,8 @@ movies = [
         "trailer": "https://www.youtube.com/",
         "horarios": ["2:00 PM", "5:00 PM", "8:00 PM"],
         "sinopsis": "Veintiséis años después de escapar de un asesino enmascarado, el Core Four vuelve a convertirse en objetivo.",
-        "reparto": [
-            "Marlon Wayans",
-            "Shawn Wayans",
-            "Anna Faris",
-            "Regina Hall"
-        ]
+        "reparto": ["Marlon Wayans", "Shawn Wayans", "Anna Faris", "Regina Hall"],
     },
-
     {
         "id": 2,
         "titulo": "El Diablo Viste de Prada 2",
@@ -29,9 +23,8 @@ movies = [
         "trailer": "https://www.youtube.com/",
         "horarios": ["1:00 PM", "4:00 PM", "7:00 PM"],
         "sinopsis": "Miranda Priestly regresa al mundo de la moda en una nueva etapa.",
-        "reparto": ["Meryl Streep", "Anne Hathaway", "Emily Blunt"]
+        "reparto": ["Meryl Streep", "Anne Hathaway", "Emily Blunt"],
     },
-
     {
         "id": 3,
         "titulo": "El Mandaloriano y Grogu",
@@ -43,9 +36,8 @@ movies = [
         "trailer": "https://www.youtube.com/",
         "horarios": ["3:00 PM", "6:00 PM", "9:00 PM"],
         "sinopsis": "Mando y Grogu emprenden una nueva aventura galáctica.",
-        "reparto": ["Pedro Pascal", "Sigourney Weaver"]
+        "reparto": ["Pedro Pascal", "Sigourney Weaver"],
     },
-
     {
         "id": 4,
         "titulo": "Mortal Kombat II",
@@ -57,9 +49,8 @@ movies = [
         "trailer": "https://www.youtube.com/",
         "horarios": ["2:30 PM", "5:30 PM", "8:30 PM"],
         "sinopsis": "La lucha definitiva por Earthrealm continúa.",
-        "reparto": ["Karl Urban", "Lewis Tan"]
+        "reparto": ["Karl Urban", "Lewis Tan"],
     },
-
     {
         "id": 5,
         "titulo": "Supergirl",
@@ -70,10 +61,9 @@ movies = [
         "poster": "/Imagenes/posters/supergirl.jpg",
         "trailer": "https://www.youtube.com/",
         "horarios": ["2:00 PM", "5:00 PM", "8:00 PM"],
-        "sinopsis": "Kara Zor‑El inicia una nueva aventura por el universo.",
-        "reparto": ["Milly Alcock"]
+        "sinopsis": "Kara Zor-El inicia una nueva aventura por el universo.",
+        "reparto": ["Milly Alcock"],
     },
-
     {
         "id": 6,
         "titulo": "Toy Story 5",
@@ -85,9 +75,8 @@ movies = [
         "trailer": "https://www.youtube.com/",
         "horarios": ["12:00 PM", "3:00 PM", "6:00 PM"],
         "sinopsis": "Buzz y Woody vuelven para una nueva aventura.",
-        "reparto": ["Tom Hanks", "Tim Allen"]
+        "reparto": ["Tom Hanks", "Tim Allen"],
     },
-
     {
         "id": 7,
         "titulo": "Moana",
@@ -99,9 +88,8 @@ movies = [
         "trailer": "https://www.youtube.com/",
         "horarios": ["1:00 PM", "4:00 PM", "7:00 PM"],
         "sinopsis": "Moana emprende un nuevo viaje por el océano.",
-        "reparto": ["Auliʻi Cravalho", "Dwayne Johnson"]
+        "reparto": ["Auliʻi Cravalho", "Dwayne Johnson"],
     },
-
     {
         "id": 8,
         "titulo": "Spider-Man: Brand New Day",
@@ -112,7 +100,7 @@ movies = [
         "poster": "/Imagenes/posters/spiderman.jpg",
         "trailer": "https://www.youtube.com/",
         "horarios": ["3:00 PM", "6:00 PM", "9:00 PM"],
-        "sinopsis": "Peter Parker inicia una nueva etapa como Spider‑Man.",
-        "reparto": ["Tom Holland", "Zendaya"]
-    }
+        "sinopsis": "Peter Parker inicia una nueva etapa como Spider-Man.",
+        "reparto": ["Tom Holland", "Zendaya"],
+    },
 ]

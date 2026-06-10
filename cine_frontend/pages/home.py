@@ -1,42 +1,43 @@
-# home.py
-
 import reflex as rx
 
 from cine_frontend.components.navbar import navbar
 from cine_frontend.components.carousel import carousel
+from cine_frontend.states.movie_state import MovieState
 
 
-def movie_card(titulo, genero, clasificacion, ruta):
+def movie_card(movie):
+
     return rx.card(
         rx.vstack(
 
-            rx.link(
-                rx.image(
-                    src=ruta,
-                    width="220px",
-                    height="340px",
-                    border_radius="10px",
-                    object_fit="cover",
-                ),
-                href="/pelicula",
+            rx.image(
+                src=f"/Imagenes/posters/{movie['imagen_url']}",
+                width="220px",
+                height="340px",
+                border_radius="10px",
+                object_fit="cover",
             ),
 
             rx.heading(
-                titulo,
+                movie["titulo"],
                 size="4",
                 text_align="center",
-                min_height="65px",
                 color="white",
             ),
 
             rx.badge(
-                genero,
+                movie["genero"],
                 color_scheme="blue",
             ),
 
             rx.badge(
-                clasificacion,
+                movie["clasificacion"],
                 color_scheme="red",
+            ),
+
+            rx.text(
+                f"RD${movie['precio']}",
+                color="white",
             ),
 
             rx.link(
@@ -45,19 +46,22 @@ def movie_card(titulo, genero, clasificacion, ruta):
                     width="100%",
                     color_scheme="blue",
                 ),
-                href="/pelicula",
+                href="/pelicula?id=" + movie["id"].to_string(),
             ),
 
             spacing="3",
             align="center",
         ),
+
         width="270px",
         bg="#1e293b",
     )
 
 
 def peliculas_section():
+
     return rx.vstack(
+
         rx.heading(
             "──────────────── EN CARTELERA ────────────────",
             size="6",
@@ -66,60 +70,9 @@ def peliculas_section():
 
         rx.flex(
 
-            movie_card(
-                "Scary Movie 6",
-                "Comedia",
-                "R/14",
-                "/Imagenes/posters/scarymovie6.jpg",
-            ),
-
-            movie_card(
-                "El Diablo Viste de Prada 2",
-                "Comedia",
-                "R/14",
-                "/Imagenes/posters/prada2.jpg",
-            ),
-
-            movie_card(
-                "El Mandaloriano y Grogu",
-                "Ciencia Ficción",
-                "R/14",
-                "/Imagenes/posters/grogu.jpg",
-            ),
-
-            movie_card(
-                "Mortal Kombat II",
-                "Acción",
-                "R/18",
-                "/Imagenes/posters/mortalkombat2.jpg",
-            ),
-
-            movie_card(
-                "Supergirl",
-                "Acción",
-                "R/14",
-                "/Imagenes/posters/supergirl.jpg",
-            ),
-
-            movie_card(
-                "Toy Story 5",
-                "Animación",
-                "ATP",
-                "/Imagenes/posters/toystory5.jpg",
-            ),
-
-            movie_card(
-                "Moana",
-                "Aventura",
-                "ATP",
-                "/Imagenes/posters/moana.jpg",
-            ),
-
-            movie_card(
-                "Spider-Man: Brand New Day",
-                "Acción",
-                "R/14",
-                "/Imagenes/posters/spiderman.jpg",
+            rx.foreach(
+                MovieState.peliculas,
+                movie_card,
             ),
 
             wrap="wrap",
@@ -134,62 +87,50 @@ def peliculas_section():
 
 
 def proximamente_section():
+
     return rx.vstack(
+
         rx.heading(
             "──────────────── PRÓXIMAMENTE ────────────────",
             size="6",
             color="white",
+            text_align="center",
         ),
 
-        rx.text("Dune: Part Three", color="white"),
-        rx.text("The Batman II", color="white"),
-        rx.text("Avengers: Secret Wars", color="white"),
-        rx.text("Frozen 3", color="white"),
+        rx.text(
+            "Dune: Part Three",
+            color="white",
+            text_align="center",
+        ),
+
+        rx.text(
+            "The Batman II",
+            color="white",
+            text_align="center",
+        ),
+
+        rx.text(
+            "Avengers: Secret Wars",
+            color="white",
+            text_align="center",
+        ),
+
+        rx.text(
+            "Frozen 3",
+            color="white",
+            text_align="center",
+        ),
 
         spacing="3",
         padding="2em",
         align="center",
+        width="100%",
     )
 
 
 def footer():
+
     return rx.vstack(
-
-        rx.hstack(
-
-            rx.link(
-                rx.image(
-                    src="/Imagenes/youtube.png",
-                    width="40px",
-                    height="40px",
-                ),
-                href="https://www.youtube.com/channel/UC0Y4DREcrJ49xmTXM5Jpwag",
-                is_external=True,
-            ),
-
-            rx.link(
-                rx.image(
-                    src="/Imagenes/tiktok.png",
-                    width="40px",
-                    height="40px",
-                ),
-                href="https://www.tiktok.com/@movietimerd1",
-                is_external=True,
-            ),
-
-            rx.link(
-                rx.image(
-                    src="/Imagenes/instagram.png",
-                    width="40px",
-                    height="40px",
-                ),
-                href="https://www.instagram.com/movietimerd1/",
-                is_external=True,
-            ),
-
-            spacing="5",
-            justify="center",
-        ),
 
         rx.text(
             "© 2026 MovieTime RD - Todos los derechos reservados"
@@ -205,14 +146,23 @@ def footer():
 
 
 def home():
+
     return rx.vstack(
+
         navbar(),
+
         carousel(),
+
         peliculas_section(),
+
         proximamente_section(),
+        
         footer(),
+
         spacing="0",
         width="100%",
         bg="#0f172a",
         min_height="100vh",
+
+        on_mount=MovieState.cargar_peliculas,
     )
