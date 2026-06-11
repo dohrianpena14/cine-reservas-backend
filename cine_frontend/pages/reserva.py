@@ -2,6 +2,7 @@ import reflex as rx
 
 from cine_frontend.components.navbar import navbar
 from cine_frontend.components.seats import seats
+from cine_frontend.states.reserva_api_state import ReservaApiState
 
 
 def reserva():
@@ -15,26 +16,41 @@ def reserva():
             color="white",
         ),
 
-        seats(),
-
-        rx.select(
-            ["2:00 PM", "5:00 PM", "8:00 PM"],
-            placeholder="Seleccione horario",
-            width="300px",
+        rx.text(
+            "Seleccione el horario según la película elegida:",
+            color="white",
         ),
 
-        rx.select(
-            ["1", "2", "3", "4", "5"],
-            placeholder="Cantidad de boletos",
-            width="300px",
+        seats(),
+
+        rx.radio(
+            [
+                "13:00:00 - Sala 2",
+                "16:00:00 - Sala 2",
+                "19:00:00 - Sala 2",
+            ],
+            direction="column",
+            color_scheme="blue",
+        ),
+
+        rx.radio(
+            ["1 boleto", "2 boletos", "3 boletos", "4 boletos", "5 boletos"],
+            direction="row",
+            color_scheme="green",
         ),
 
         rx.button(
             "Confirmar Reserva",
             size="4",
             color_scheme="green",
+            on_click=ReservaApiState.reservar,
         ),
 
+        rx.text(
+            ReservaApiState.mensaje,
+            color="yellow",
+        ),
+       
         bg="#0f172a",
         color="white",
         min_height="100vh",

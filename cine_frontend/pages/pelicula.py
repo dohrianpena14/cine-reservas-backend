@@ -81,12 +81,12 @@ def pelicula_card(movie):
                 is_external=True,
             ),
 
-            rx.link(
+           rx.link(
                 rx.button(
                     "Reservar",
                     color_scheme="green",
                 ),
-                href="/reserva",
+                href=f"/reserva?pelicula={movie['id']}",
             ),
 
             align="start",
